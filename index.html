@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nafij Pro</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #f9f9f9, #dfefff);
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      user-select: none; /* Disable text selection */
+    }
+    .container {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      max-width: 400px;
+      width: 100%;
+    }
+    img.floating-img {
+      width: 180px;
+      border-radius: 12px;
+      transition: transform 0.5s ease;
+      animation: float 3s ease-in-out infinite;
+      pointer-events: none; /* Prevent interactions with the image */
+    }
+    img.floating-img:hover {
+      transform: rotate(10deg) scale(1.05);
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    h2 {
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+      font-size: 24px;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    .btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+  <script>
+    // Disable right-click to prevent image saving
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+    });
+
+    // Disable image dragging (this prevents the image from being dragged)
+    document.addEventListener('dragstart', function(e) {
+      if (e.target.tagName.toLowerCase() === 'img') {
+        e.preventDefault();
+      }
+    });
+
+    // Disable screenshot capture or DevTools key combo for Chrome & Firefox
+    document.addEventListener('keydown', function(e) {
+      if (e.key === "PrintScreen" || e.key === "F12" || e.ctrlKey && e.shiftKey && e.key === "I") {
+        e.preventDefault();
+      }
+    });
+  </script>
+</head>
+<body>
+  <div class="container">
+    <img class="floating-img" src="https://raw.githubusercontent.com/alkama844/geminipro/refs/heads/main/res/IMG_20250503_175514-1.jpg" alt="Nafij Image">
+    <h2>Created by Nafij</h2>
+    <p>Click below to visit the hosted app</p>
+    <a class="btn" href="http://87.106.100.210:6160" target="_blank">View Website</a>
+  </div>
+</body>
+</html>
